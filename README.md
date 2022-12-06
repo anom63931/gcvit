@@ -83,8 +83,8 @@ operations such as computing attention masks or shifting local windows.
 
 <tr>
     <td>GC ViT-L</td>
-    <td>84.6</td>
-    <td>96.9</td>
+    <td>84.8</td>
+    <td>97.1</td>
     <td>201</td>
     <td>32.6</td>
     <td><a href="https://drive.google.com/file/d/19FHZkDUBPK5FB7TVweszmkAtkQfX2o9w/view?usp=sharing">summary</a></td>
