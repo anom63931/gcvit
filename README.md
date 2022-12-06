@@ -87,8 +87,8 @@ operations such as computing attention masks or shifting local windows.
     <td>96.9</td>
     <td>201</td>
     <td>32.6</td>
-    <td><a href="https://drive.google.com/file/d/14DvLuoKoaEGpj3yTxt-a8kUzHvJB4x-Q/view?usp=share_link">summary</a></td>
-    <td><a href="https://drive.google.com/file/d/1cR1MQZRBnUdOiCvecP7LaXfagt7p3PIq/view?usp=share_link">model</a></td>
+    <td><a href="https://drive.google.com/file/d/19FHZkDUBPK5FB7TVweszmkAtkQfX2o9w/view?usp=sharing">summary</a></td>
+    <td><a href="https://drive.google.com/file/d/1mBsSUiBIwZdl2knqrcNuURlV-vBQzFXK/view?usp=sharing">model</a></td>
 </tr>
 
 </table>
