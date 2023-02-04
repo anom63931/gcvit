@@ -667,20 +667,6 @@ class GCViT(nn.Module):
 
 
 @register_model
-def gc_vit_xxtiny(pretrained=False, **kwargs):
-    model = GCViT(depths=[2, 2, 6, 2],
-                  num_heads=[2, 4, 8, 16],
-                  window_size=[7, 7, 14, 7],
-                  dim=64,
-                  mlp_ratio=3,
-                  drop_path_rate=0.2,
-                  **kwargs)
-    if pretrained:
-        model.load_state_dict(torch.load(pretrained))
-    return model
-
-
-@register_model
 def gc_vit_xtiny(pretrained=False, **kwargs):
     model = GCViT(depths=[3, 4, 6, 5],
                   num_heads=[2, 4, 8, 16],
@@ -709,6 +695,20 @@ def gc_vit_tiny(pretrained=False, **kwargs):
 
 
 @register_model
+def gc_vit_tiny2(pretrained=False):
+    model = GCViT(depths=[3, 4, 29, 5],
+                  num_heads=[2, 4, 8, 16],
+                  window_size=[7, 7, 14, 7],
+                  dim=64,
+                  mlp_ratio=3,
+                  drop_path_rate=0.25,
+                  )
+    if pretrained:
+        model.load_state_dict(torch.load(pretrained))
+    return model
+
+
+@register_model
 def gc_vit_small(pretrained=False, **kwargs):
     model = GCViT(depths=[3, 4, 19, 5],
                   num_heads=[3, 6, 12, 24],
@@ -724,7 +724,22 @@ def gc_vit_small(pretrained=False, **kwargs):
 
 
 @register_model
-def gc_vit_base(pretrained=False, **kwargs):
+def gc_vit_small2(pretrained=False):
+    model = GCViT(depths=[3, 4, 23, 5],
+                  num_heads=[3, 6, 12, 24],
+                  window_size=[7, 7, 14, 7],
+                  dim=96,
+                  mlp_ratio=3,
+                  drop_path_rate=0.35,
+                  layer_scale=1e-5,
+                  )
+    if pretrained:
+        model.load_state_dict(torch.load(pretrained))
+    return model
+
+
+@register_model
+def gc_vit_base(pretrained=False):
     model = GCViT(depths=[3, 4, 19, 5],
                   num_heads=[4, 8, 16, 32],
                   window_size=[7, 7, 14, 7],
@@ -732,7 +747,7 @@ def gc_vit_base(pretrained=False, **kwargs):
                   mlp_ratio=2,
                   drop_path_rate=0.5,
                   layer_scale=1e-5,
-                  **kwargs)
+                  )
     if pretrained:
         model.load_state_dict(torch.load(pretrained))
     return model
@@ -740,28 +755,15 @@ def gc_vit_base(pretrained=False, **kwargs):
 
 @register_model
 def gc_vit_large(pretrained=False, **kwargs):
+    drop_path_rate = kwargs.pop("drop_path_rate", 0.5)
     model = GCViT(depths=[3, 4, 19, 5],
                   num_heads=[6, 12, 24, 48],
                   window_size=[7, 7, 14, 7],
                   dim=192,
                   mlp_ratio=2,
-                  drop_path_rate=0.6,
+                  drop_path_rate=drop_path_rate,
                   layer_scale=1e-5,
-                  **kwargs)
-    if pretrained:
-        model.load_state_dict(torch.load(pretrained))
-    return model
-
-
-@register_model
-def gc_vit_huge(pretrained=False, **kwargs):
-    model = GCViT(depths=[3, 4, 19, 5],
-                  num_heads=[6, 12, 24, 48],
-                  window_size=[7, 7, 7, 7],
-                  dim=384,
-                  mlp_ratio=2,
-                  drop_path_rate=0.6,
-                  layer_scale=1e-5,
+                  grad_ckpt=True,
                   **kwargs)
     if pretrained:
         model.load_state_dict(torch.load(pretrained))
